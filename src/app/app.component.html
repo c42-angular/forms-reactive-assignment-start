@@ -22,9 +22,22 @@
           <input type="text" class="form-control"
             id="projectName" formControlName="projectName">
             <span class="help-block"
-              *ngIf="!theForm.get('projectName').valid && theForm.get('projectName').touched">Please enter a name</span>
+              *ngIf="!theForm.get('projectName').valid && theForm.get('projectName').touched">
+                  Please enter a name</span>
         </div>
 
+        <div class="form-group">
+          <label for="projectMail">Email</label>
+          <input type="text" class="form-control"
+            id="projectName" formControlName="projectMail">
+            <span class="help-block"
+              *ngIf="theForm.get('projectMail').touched && theForm.get('projectMail').errors['required']">
+                  Please enter an email</span>
+            <span class="help-block"
+              *ngIf="theForm.get('projectMail').touched && !theForm.get('projectMail').errors['required']
+                      && theForm.get('projectMail').errors['email']">
+                  This is not a valid email</span>
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
