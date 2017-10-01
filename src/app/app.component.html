@@ -36,13 +36,13 @@
           <label for="projectMail">Email</label>
           <input type="text" class="form-control"
             id="projectName" formControlName="projectMail">
-            <span class="help-block"
-              *ngIf="theForm.get('projectMail').touched && theForm.get('projectMail').errors['required']">
-                  Please enter an email</span>
-            <span class="help-block"
-              *ngIf="theForm.get('projectMail').touched && !theForm.get('projectMail').errors['required']
-                      && theForm.get('projectMail').errors['email']">
+          <span class="help-block"
+            *ngIf="theForm.get('projectMail').touched && !theForm.get('projectMail').valid">
+            <span *ngIf="theForm.get('projectMail').errors['required']">
+                Please enter an email</span>
+            <span *ngIf="theForm.get('projectMail').errors['email']">
                   This is not a valid email</span>
+            </span>
         </div>
 
         <div class="form-group">
@@ -54,6 +54,15 @@
           </select>
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
+
+        <div class="row" *ngIf="submitted">
+          <div class="col-xs-12">
+            <h3>Form Data:</h3>
+            <p>Project Name: {{formValue.projectName}}</p>
+            <p>Email: {{formValue.projectEmail}}</p>
+            <p>Status: {{formValue.projectStatus}}</p>
+          </div>
+        </div>
       </form>
     </div>
   </div>

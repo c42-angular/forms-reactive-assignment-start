@@ -12,9 +12,20 @@ export class AppComponent implements OnInit {
   theForm: FormGroup;
   projectStatuses = ['Stable', 'Critical', 'Finished'];
   defaultStatus = '';
+  formValue = {
+    'projectName': '',
+    'projectEmail': '',
+    'projectStatus': ''
+  };
+  submitted = false;
 
   onFormSubmit() {
+    this.submitted = true;
     console.log(this.theForm);
+
+    this.formValue.projectName = this.theForm.value.projectName;
+    this.formValue.projectEmail = this.theForm.value.projectEmail;
+    this.formValue.projectStatus = this.theForm.value.projectStatus;
   }
 
   ngOnInit(): void {
