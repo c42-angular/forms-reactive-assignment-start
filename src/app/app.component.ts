@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
 
   theForm: FormGroup;
   projectStatuses = ['Stable', 'Critical', 'Finished'];
-  defaultStatus = '';
   formValue = {
     'projectName': '',
     'projectEmail': '',
@@ -32,7 +31,7 @@ export class AppComponent implements OnInit {
     this.theForm = new FormGroup({
       'projectName': new FormControl(null, Validators.required, this.userNameCheckAsync),
       'projectMail': new FormControl(null, [Validators.required, Validators.email]),
-      'projectStatus': new FormControl(null)
+      'projectStatus': new FormControl('Critical')
     });
   }
 
