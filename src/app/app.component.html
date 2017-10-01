@@ -23,7 +23,13 @@
             id="projectName" formControlName="projectName">
             <span class="help-block"
               *ngIf="!theForm.get('projectName').valid && theForm.get('projectName').touched">
-                  Please enter a name</span>
+                  Please enter a valid name</span>
+            <span class="help-block"
+              *ngIf="theForm.get('projectName').status === 'PENDING'">
+                  Checking...</span>
+            <span class="help-block"
+              *ngIf="theForm.get('projectName').status === 'VALID'">
+                  Project name is valid!</span>
         </div>
 
         <div class="form-group">
