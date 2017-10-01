@@ -9,6 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
 
   theForm: FormGroup;
+  projectStatuses = ['Stable', 'Critical', 'Finished'];
+  defaultStatus = '';
 
   onFormSubmit() {
     console.log(this.theForm);

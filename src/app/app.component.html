@@ -38,6 +38,15 @@
                       && theForm.get('projectMail').errors['email']">
                   This is not a valid email</span>
         </div>
+
+        <div class="form-group">
+          <label for="projectStatus">Project Status</label>
+          <select id="projectStatus" class="form-control"
+            formControlName = "projectStatus" [ngModel]="defaultStatus">
+            <option *ngFor="let status of projectStatuses"
+              [value]="status">{{status}}</option>
+          </select>
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
